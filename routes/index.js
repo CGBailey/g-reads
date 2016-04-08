@@ -2,11 +2,41 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
+
+
+
+var getPics = function() {
+  var authPic
+  var bookPic
+  return knex('authors').where({id: 1})
+  .then(function(author) {
+    authPic = author.portrait_url
+    return knex('books').where({id: 6})
+    .then(book) {
+      bookPic = book.cover_url
+      return {
+        portrait: authPic,
+        cover: bookPic
+      }
+    }
+  })
+}
+
+
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'home' });
+  getPics()
+  .then(function(pictures){
+    res.render('index', { portait: pictures.portrait, cover: pictures.cover })
+  })
 });
 
+
+
 router.get('/books', function(req, res, next) {
+  knex('bibs')
+  .innerJoin('books', 'bibs.book_id', 'books.id')
+  .innerJoin('genres', 'books.genre_id', 'genres.id')
+  .innerJoin('authors', 'bibs.author_id', 'authors.id')
   res.render('index', { title: 'books' });
 });
 
