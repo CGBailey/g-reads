@@ -8,12 +8,12 @@
   <label for="authors">Authors</label>
   <label for="">Books</label>
   <ul>
-    <li value = ""><input type="button" name="name" value=""><a href="#"></a></li>
+    <li value = ""><a href="#">Remove</a></li>
   </ul>
   <select class="" name="">
-    {{#authors}}
-    <option value="option">option</option>
-    {{/authors}}
+    {{#each books}}
+    <option value={{id}}>{{title}}</option>
+    {{/each}}
   </select>
   <input type="button" name="name" value="">Add This Book</input>
   <input type="submit" name="name" value="">Add This Author</input>

@@ -5,15 +5,16 @@
 <input type="text" name="genre">
 <label for="description">Description</label>
 <input type="text" name="description">
-<label for="authors">Authors</label>
+<label for="authors">Author(s)</label>
 <label for="">Authors</label>
 <ul>
-  <li value = ""><input type="button" name="name" value=""><a href="#"></a></li>
+  <li value = ""><a href="#">Remove</a></li>
 </ul>
 <select class="" name="">
   {{#authors}}
-  <option value="option">option</option>
+  <option value={{id}}>{{author_firstName}} {{author_lastName}}</option>
   {{/authors}}
 </select>
 <input type="button" name="name" value="">Add This Author</input>
+<input type="submit" name="name" value="">Add This Book</input>
 </form>

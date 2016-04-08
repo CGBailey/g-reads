@@ -1,15 +1,20 @@
-{{#display}}
-<img src="" alt="" />
-<h3></h3>
+{{#each display}}
+<img src={{image}} />
+<h3>{{title}}</h3>
 <p>
   Author(s):
+  <ul>
+    {{#each ../authors}}
+    <li>{{..this}}</li>
+    {{/each}}
+  </ul>
 </p>
 <p>
-  Genre:
+  Genre: {{genre}}
 </p>
 <a href="/books/{{id}}/edit">Edit</a>
 <a href="/books/{{id}}/delete">Remove</a>
 <p>
-  {{descriptions}}
+  {{description}}
 </p>
-{{/display}}
+{{/each}}

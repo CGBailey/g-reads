@@ -1,14 +1,16 @@
-{{#display}}
-<img src="" alt="" />
-<h3></h3>
+{{#each display}}
+<img href={{portrait}} />
+<h3>{{name}}</h3>
+<h5>Biography</h5>
 <p>
-
+{{bio}}
 </p>
+<h5>Books</h5>
 <ul>
-  {{#books}}
-  <li></li>
-  {{/books}}
+  {{#each ../books}}
+  <li>{{this}}</li>
+  {{/each}}
 </ul>
 <a href="/authors/{{id}}/edit">Edit</a>
 <a href="/authors/{{id}}/delete">Remove</a>
-{{/display}}
+{{/each}}
